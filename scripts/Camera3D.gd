@@ -12,6 +12,7 @@ func _ready():
 	set_process_input(true)
 	set_process(true)
 	position = Vector3(Global.MAPSIZE_X *2 +10,20,Global.MAPSIZE_Z)
+	rotation_degrees = Vector3(-45, 90,0)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -79,3 +80,4 @@ func pan_camera_keyboard(movement):
 
 func _on_backto_throne_pressed():
 	position = Vector3(Global.MAPSIZE_X *2 +10,20,Global.MAPSIZE_Z)
+	rotation_degrees = Vector3(-45, 90,0)
