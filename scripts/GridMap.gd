@@ -1,18 +1,15 @@
 extends GridMap
 
 @export var grid_size: Vector3 = Vector3(10, 1, 20)
-var chanceOfLand = .25
+@export var chanceOfLand = .25
 var actionSelected: String
-const RAY_LENGTH = 100
+const RAY_LENGTH:int = 100
 
-func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-		if actionSelected == "delete":
-			delete_block_under_mouse()
+@onready var  camera =$"../PlayerCamera"
+
 
 func _ready():
 	randomize()  # Seed the random number generator
-
 	# Loop through each cell in the grid
 	for x in range(grid_size.x):
 		for y in range(grid_size.y):
@@ -27,6 +24,13 @@ func _ready():
 				# Add collision shape and debug outline for the block
 				add_collision_shape(Vector3(x, y, z))
 
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		if actionSelected == "delete":
+			delete_block_under_mouse()
+		elif actionSelected == "effect":
+			pass
+
 func _on_button_delete_block_pressed():
 	print("Delete button")
 	actionSelected = "delete"
@@ -36,9 +40,6 @@ func _on_button_effect_pressed():
 	actionSelected = "effect"
 
 func delete_block_under_mouse():
-	var camera =$"../PlayerCamera" 
-	if not camera:
-		return
 	
 	var mouse_position = get_viewport().get_mouse_position()
 	var from = camera.project_ray_origin(mouse_position)
@@ -78,3 +79,7 @@ func add_collision_shape(cell_position: Vector3):
 	static_body.add_child(collision_shape)
 	static_body.transform.origin = map_to_local(cell_position)
 	add_child(static_body)
+
+
+
+
