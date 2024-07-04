@@ -1,0 +1,35 @@
+[gd_resource type="MeshLibrary" load_steps=7 format=3 uid="uid://c6y26fj1dqx30"]
+
+[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_rjalv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwbvn"]
+next_pass = SubResource("PlaceholderMaterial_rjalv")
+albedo_color = Color(0.193233, 0, 0.966101, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_apq5r"]
+material = SubResource("StandardMaterial3D_jwbvn")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_boj5s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n26jc"]
+next_pass = SubResource("PlaceholderMaterial_boj5s")
+albedo_color = Color(1, 0.98929, 0.450718, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7rtb"]
+material = SubResource("StandardMaterial3D_n26jc")
+size = Vector3(2, 2, 2)
+
+[resource]
+item/0/name = "WaterBlock"
+item/0/mesh = SubResource("BoxMesh_apq5r")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+item/1/name = "LandBlock"
+item/1/mesh = SubResource("BoxMesh_e7rtb")
+item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/shapes = []
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1
