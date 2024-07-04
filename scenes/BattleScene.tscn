@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bor2y6ktlishm"]
 
-[ext_resource type="MeshLibrary" uid="uid://c6y26fj1dqx30" path="res://BattleFieldBlocks.tres" id="1_osn1r"]
-[ext_resource type="Script" path="res://scenes/GridMap.gd" id="1_x1ax3"]
-[ext_resource type="Script" path="res://scenes/Camera3D.gd" id="3_hw4m8"]
+[ext_resource type="MeshLibrary" uid="uid://c6y26fj1dqx30" path="res://Textures/BattleFieldBlocks.tres" id="1_h8yg2"]
+[ext_resource type="Script" path="res://scripts/GridMap.gd" id="2_k8n4s"]
+[ext_resource type="Script" path="res://scripts/Camera3D.gd" id="3_uyp4h"]
 
 [sub_resource type="Environment" id="Environment_rrhxh"]
 ambient_light_source = 3
@@ -11,11 +11,11 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="PlayArea" type="Node3D"]
 
 [node name="BattleGrid" type="GridMap" parent="."]
-mesh_library = ExtResource("1_osn1r")
-script = ExtResource("1_x1ax3")
+mesh_library = ExtResource("1_h8yg2")
+script = ExtResource("2_k8n4s")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.918412, 0.395626, 0, -0.395626, 0.918412, 10, 6.508, 40)
 environment = SubResource("Environment_rrhxh")
-script = ExtResource("3_hw4m8")
+script = ExtResource("3_uyp4h")
