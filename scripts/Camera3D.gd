@@ -26,14 +26,6 @@ func _input(event):
 			else:
 				is_right_clicking = false
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		elif event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				is_left_clicking = true
-				last_mouse_pos = event.position
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			else:
-				is_left_clicking = false
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	elif event is InputEventMouseMotion:
 		var mouse_delta = event.relative

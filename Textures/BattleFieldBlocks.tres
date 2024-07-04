@@ -10,11 +10,11 @@ albedo_color = Color(0.193233, 0, 0.966101, 1)
 material = SubResource("StandardMaterial3D_jwbvn")
 size = Vector3(2, 2, 2)
 
-[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_boj5s"]
+[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_rfr2r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n26jc"]
-next_pass = SubResource("PlaceholderMaterial_boj5s")
-albedo_color = Color(1, 0.98929, 0.450718, 1)
+next_pass = SubResource("PlaceholderMaterial_rfr2r")
+albedo_color = Color(0.875463, 0.846858, 0.198261, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e7rtb"]
 material = SubResource("StandardMaterial3D_n26jc")
