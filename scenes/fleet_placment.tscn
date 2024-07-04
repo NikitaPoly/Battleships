@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b80ne1ehgpgq4"]
 
-[ext_resource type="Script" path="res://scenes/GridContainer.gd" id="1_54luf"]
-[ext_resource type="Script" path="res://scenes/StartGame.gd" id="2_mc1dj"]
+[ext_resource type="Script" path="res://scripts/GridContainer.gd" id="1_54luf"]
+[ext_resource type="Script" path="res://scripts/StartGame.gd" id="2_mc1dj"]
 
 [node name="FleetPlacment" type="Control"]
 layout_mode = 3
