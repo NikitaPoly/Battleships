@@ -16,7 +16,7 @@ script = ExtResource("2_k8n4s")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.918412, 0.395626, 0, -0.395626, 0.918412, 10, 6.508, 40)
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 0, 0, 0)
 environment = SubResource("Environment_rrhxh")
 script = ExtResource("3_uyp4h")
 
@@ -46,15 +46,15 @@ offset_right = -30.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="effect button" type="Button" parent="CanvasLayer/AdmiralUI/HBoxContainer"]
-layout_mode = 2
-text = "effect
-"
+alignment = 1
 
 [node name="Delete block button" type="Button" parent="CanvasLayer/AdmiralUI/HBoxContainer"]
 layout_mode = 2
 text = "Delete Block"
 
-[connection signal="pressed" from="CanvasLayer/AdmiralUI/HBoxContainer/effect button" to="BattleGrid" method="_on_button_effect_pressed"]
+[node name="BacktoThrone" type="Button" parent="CanvasLayer/AdmiralUI/HBoxContainer"]
+layout_mode = 2
+text = "Back To Throne"
+
 [connection signal="pressed" from="CanvasLayer/AdmiralUI/HBoxContainer/Delete block button" to="BattleGrid" method="_on_button_delete_block_pressed"]
+[connection signal="pressed" from="CanvasLayer/AdmiralUI/HBoxContainer/BacktoThrone" to="PlayerCamera" method="_on_backto_throne_pressed"]

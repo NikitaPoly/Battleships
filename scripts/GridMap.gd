@@ -4,36 +4,20 @@ extends GridMap
 @export var chanceOfLand = .25
 var actionSelected: String
 const RAY_LENGTH:int = 100
+const HIT_BOX_SIZE:Vector3= Vector3(1.9, 1.9, 1.9)
 
 @onready var  camera =$"../PlayerCamera"
 
 
 func _ready():
-	randomize()  # Seed the random number generator
-	# Loop through each cell in the grid
-	for x in range(grid_size.x):
-		for y in range(grid_size.y):
-			for z in range(grid_size.z):
-				# Randomly select a block type from the library
-				var random_block_type_index = randf()
-				if random_block_type_index <= chanceOfLand:
-					# Set the block at the specified grid position
-					set_cell_item(Vector3(x, y, z), 1)
-				else:
-					set_cell_item(Vector3(x, y, z), 0)
-				# Add collision shape and debug outline for the block
-				add_collision_shape(Vector3(x, y, z))
-
+	_populate_map()
+	
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		if actionSelected == "delete":
 			delete_block_under_mouse()
 		elif actionSelected == "effect":
 			pass
-
-func _on_button_delete_block_pressed():
-	print("Delete button")
-	actionSelected = "delete"
 
 func _on_button_effect_pressed():
 	print("Effect button")
@@ -68,13 +52,23 @@ func delete_block_under_mouse():
 	else:
 		print("No collision detected")
 
+func _on_button_delete_block_pressed():
+	print("Delete button")
+	actionSelected = "delete"
+
+func _populate_map():
+	for x in range(Global.MAPSIZE_X):
+		for z in range(Global.MAPSIZE_Z):
+			set_cell_item(Vector3( x,0,Global.MAPSIZE_Z - z),Global.mapTerrain[x][z])
+			add_collision_shape(Vector3( x,0,Global.MAPSIZE_Z -z))
+
 func add_collision_shape(cell_position: Vector3):
 	var static_body = StaticBody3D.new()
 	static_body.name = str(cell_position)
 	var collision_shape = CollisionShape3D.new()
 	# Assuming a box shape, you can adjust the size according to your block size
 	var box_shape = BoxShape3D.new()
-	box_shape.size = Vector3(1.9, 1.9, 1.9)  # Adjust the size if necessary
+	box_shape.size =  HIT_BOX_SIZE # Adjust the size if necessary
 	collision_shape.shape = box_shape
 	static_body.add_child(collision_shape)
 	static_body.transform.origin = map_to_local(cell_position)

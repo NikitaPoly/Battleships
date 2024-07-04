@@ -11,6 +11,7 @@ var last_mouse_pos = Vector2()
 func _ready():
 	set_process_input(true)
 	set_process(true)
+	position = Vector3(Global.MAPSIZE_X *2 +10,20,Global.MAPSIZE_Z)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -50,10 +51,12 @@ func _process(delta):
 		pan_camera_keyboard(movement * delta * move_speed)
 
 func zoom_in():
-	translate(Vector3(0, 0, -zoom_speed * get_process_delta_time()))
+	pass
+	#translate(Vector3(0, 0, -zoom_speed * get_process_delta_time()))
 
 func zoom_out():
-	translate(Vector3(0, 0, zoom_speed * get_process_delta_time()))
+	pass
+	#translate(Vector3(0, 0, zoom_speed * get_process_delta_time()))
 
 func rotate_camera(mouse_delta):
 	# Apply yaw rotation around the y-axis
@@ -72,3 +75,7 @@ func pan_camera(mouse_delta):
 
 func pan_camera_keyboard(movement):
 	translate(movement)
+
+
+func _on_backto_throne_pressed():
+	position = Vector3(Global.MAPSIZE_X *2 +10,20,Global.MAPSIZE_Z)
