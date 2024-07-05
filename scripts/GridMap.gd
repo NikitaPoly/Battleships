@@ -59,8 +59,23 @@ func _on_button_delete_block_pressed():
 func _populate_map():
 	for x in range(Global.MAPSIZE_X):
 		for z in range(Global.MAPSIZE_Z):
-			set_cell_item(Vector3( x,0,Global.MAPSIZE_Z - z),Global.mapTerrain[x][z])
-			add_collision_shape(Vector3( x,0,Global.MAPSIZE_Z -z))
+			if Global.mapTerrain[x][z] == 2:
+				#ship
+				set_cell_item(Vector3( x,1,Global.MAPSIZE_Z - z),Global.mapTerrain[x][z])
+				add_collision_shape(Vector3( x,1,Global.MAPSIZE_Z -z))
+				#water terrain
+				set_cell_item(Vector3( x,0,Global.MAPSIZE_Z - z),0)
+				add_collision_shape(Vector3( x,0,Global.MAPSIZE_Z -z))
+			elif Global.mapTerrain[x][z] == 3:
+				#base
+				set_cell_item(Vector3( x,1,Global.MAPSIZE_Z - z),Global.mapTerrain[x][z])
+				add_collision_shape(Vector3( x,1,Global.MAPSIZE_Z -z))
+				#water terrain
+				set_cell_item(Vector3( x,0,Global.MAPSIZE_Z - z),1)
+				add_collision_shape(Vector3( x,0,Global.MAPSIZE_Z -z))
+			else:
+				set_cell_item(Vector3( x,0,Global.MAPSIZE_Z - z),Global.mapTerrain[x][z])
+				add_collision_shape(Vector3( x,0,Global.MAPSIZE_Z -z))
 
 func add_collision_shape(cell_position: Vector3):
 	var static_body = StaticBody3D.new()
