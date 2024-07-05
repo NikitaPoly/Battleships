@@ -19,11 +19,11 @@ func create_map():
 				currentRow.append(0)
 		Global.mapTerrain.append(currentRow)
 	#generatebase
-	Global.mapTerrain[0][int((Global.MAPSIZE_X - 1)/2)] = 3
-	Global.mapTerrain[0][int((Global.MAPSIZE_X - 1 )/2)+1] = 3
+	Global.mapTerrain[0][int((Global.MAPSIZE_Z - 1)/2)] = 3
+	Global.mapTerrain[0][int((Global.MAPSIZE_Z - 1 )/2)+1] = 3
 		
-	Global.mapTerrain[int(Global.MAPSIZE_X) - 1][int((Global.MAPSIZE_X - 1)/2)] =3
-	Global.mapTerrain[int(Global.MAPSIZE_X) - 1][int((Global.MAPSIZE_X - 1)/2)+1] = 3
+	Global.mapTerrain[int(Global.MAPSIZE_X) - 1][int((Global.MAPSIZE_Z - 1)/2)] =3
+	Global.mapTerrain[int(Global.MAPSIZE_X) - 1][int((Global.MAPSIZE_Z - 1)/2)+1] = 3
 		
 
 
