@@ -6,7 +6,14 @@ extends GridContainer
 func _ready():
 	create_map()
 	_populate_2d_map()
+	_tets()
 
+func _tets():
+	var file = "res://FleetStats/TESTFLEET.json"
+	var data_file = FileAccess.open(file,FileAccess.READ)
+	var parsed = JSON.parse_string(data_file.get_as_text())
+	print(parsed)
+	
 func create_map():
 	randomize() 
 	for x in range(Global.MAPSIZE_X):
@@ -32,8 +39,6 @@ func _populate_2d_map():
 	for x in range(Global.MAPSIZE_X):
 		for z in range(Global.MAPSIZE_Z):
 			var newTile = get_child(Global.mapTerrain[x][z]).duplicate()
-			print(newTile.name)
-			print(Global.mapTerrain[x][z])
 			newTile.name = str(x) +","+ str(z)
 			newTile.visible = true
 			add_child(newTile)
